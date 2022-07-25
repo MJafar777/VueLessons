@@ -18,9 +18,21 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button>Add</button>
-      <button>Remove</button>
+      <!-- <button @click="counter++">Add</button>
+      <button @click="counter--">Remove</button>
+      <button @click="counter=0">Reset</button> -->
+      <input type="number" @input="getInputVal" />
+      <button @click="add()">Add</button>
+      <button @click="remove()">Remove</button>
+      <button @click="reset">Reset</button>
       <p>Result: {{ counter }}</p>
+
+      <form v-on:submit.prevent="clickBtn">
+        <input type="text" @input="getName" />
+        <input type="text" @input="getAge" />
+        <button type="submit">Submit</button>
+        <p>{{clickBtn() }}</p>
+      </form>
     </section>
   </body>
 </html>
