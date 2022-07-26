@@ -1,4 +1,4 @@
-//  
+//
 
 const app = Vue.createApp({
   data() {
@@ -16,11 +16,9 @@ const app = Vue.createApp({
     printGoal() {
       return "mt name is Jafar" + this.goal;
     },
-    changeGoal(){
-      setTimeout(()=>{
-
-      }, 200)
-    }
+    changeGoal() {
+      setTimeout(() => {}, 200);
+    },
   },
 });
 

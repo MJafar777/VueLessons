@@ -18,11 +18,21 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click="add(10)">Add 10</button>
-      <button v-on:click="reduce(5)">Subtract 5</button>
-      <p>Result: {{ onCount }}</p>
-      <input type="text" v-on:input="setName" v-bind:value="name" />
-      <p>Your Name: {{ onChange }}</p>
+      <!-- <button @click="counter++">Add</button>
+      <button @click="counter--">Remove</button>
+      <button @click="counter=0">Reset</button> -->
+      <input type="number" @input="getInputVal" />
+      <button v-on:click.right="add">Add</button>
+      <button @click="remove()">Remove</button>
+      <button @click="reset">Reset</button>
+      <p>Result: {{ counter }}</p>
+
+      <form v-on:submit.prevent="clickBtn">
+        <input type="text" @input="getName" />
+        <input type="text" @input="getAge" />
+        <button type="submit">Submit</button>
+        <p>{{clickBtn() }}</p>
+      </form>
     </section>
   </body>
 </html>
