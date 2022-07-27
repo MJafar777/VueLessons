@@ -14,22 +14,24 @@
   </head>
   <body>
     <header>
-      <h1>Vue Dynamic Styling</h1>
+      <h1>Vue Course Goals</h1>
     </header>
-    <section id="styling">
-      <!-- <div
-        :style="{backgroundColor: color}"
-        @click="changeColor"
-        class="demo"
-      ></div>
-      <div
-        :style="{backgroundColor: boxA ? 'red' :'white'}"
-        @click="selectBoxA(A)"
-        class="demo"
-      ></div> -->
-      <!-- <div @click="selectBoxA(A)" :class="boxA ? 'active demo' : 'demo'"></div> -->
-
-      <div @click="addStileA" class="demo" :class="addStileA"></div>
+    <section id="user-goals">
+      <h2>My course goals</h2>
+      <input type="text" v-model="indexValue" />
+      <button @click="createItems">Add Goal</button>
+      <p v-if="goals.length <1">
+        No goals have been added yet - please start adding some!
+      </p>
+      <ul v-else>
+        <li
+          v-for="(item, index) in goals"
+          @click="removeItems(index)"
+          :key="index"
+        >
+          {{index +1}} - {{item}}
+        </li>
+      </ul>
     </section>
   </body>
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Monster Slayer</h1>
+    </header>
+    <div id="game">
+      <section class="container">
+        <h2>Score</h2>
+        <ul>
+          <li>Monster Score : {{monsterScore}}</li>
+          <li>Player Score : {{playerScore}}</li>
+        </ul>
+      </section>
+
+      <section v-show="!winner" id="monster" class="container">
+        <h2>Monster Health</h2>
+        <div class="healthbar">
+          <div :style="monsterHealthStyle" class="healthbar__value"></div>
+        </div>
+      </section>
+      <section v-show="!winner" id="player" class="container">
+        <h2>Your Health</h2>
+        <div class="healthbar">
+          <div :style="playerHealthStyle" class="healthbar__value"></div>
+        </div>
+      </section>
+
+      <section v-show="winner" class="container">
+        <h2>Game Over</h2>
+        <h4>Winner : {{winner}}</h4>
+        <button @click="newGame">Start new Game</button>
+      </section>
+
+      <section v-show="!winner" id="controls">
+        <button @click="playerAttack">ATTACK</button>
+        <button :disabled="round <3" @click="SpecialAttack">
+          SPECIAL ATTACK
+        </button>
+        <button :disabled="roundHeal < 3" @click="heal">HEAL</button>
+        <button @click="surrender">SURRENDER</button>
+      </section>
+      <section id="log" class="container">
+        <h2>Battle Log</h2>
+        <ul></ul>
+      </section>
+    </div>
+  </body>
+</html>
