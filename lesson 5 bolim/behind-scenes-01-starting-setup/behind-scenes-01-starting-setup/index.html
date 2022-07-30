@@ -16,12 +16,11 @@
     <header>
       <h1>Vue Behind The Scenes</h1>
     </header>
-    <section id="app">
-      
-    </section>
+    <section id="app2"></section>
     <section id="app">
       <h2>How Vue Works</h2>
-      <input type="text" @input="saveInput" />
+      <input ref="getText" type="text" />
+      <!-- <input ref="getText" type="text" @input="saveInput" /> -->
       <button @click="setText">Set Text</button>
       <p>{{ message }}</p>
     </section>
