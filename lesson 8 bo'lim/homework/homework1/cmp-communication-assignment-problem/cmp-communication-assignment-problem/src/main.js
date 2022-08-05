@@ -1,9 +1,16 @@
-import { createApp } from 'vue'
+import { createApp } from "vue";
+import App from "./App.vue";
 
-createApp({}).mount('#app')
+import ActiveUser from "./Components/ActiveUser.vue";
+import UserData from "./Components/UserData.vue";
+const app = createApp(App);
 
-// Task 1: 
-// Add two components to the app: 
+app.component("active-user", ActiveUser);
+app.component("user-data", UserData);
+app.mount("#app");
+
+// Task 1:
+// Add two components to the app:
 // An ActiveUser component and an UserData component
 // ActiveUser should output a username (h2) and age (h3)
 // UserData should output two input fields => for name and age
